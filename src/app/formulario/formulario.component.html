@@ -1,0 +1,68 @@
+
+<h1 style="color:blue">Factura</h1>
+<table border="3" style="border-color: blue;">
+  ID DE CLIENTE
+  <label>
+   <input type="number" name="nombre" [(ngModel)]="idCliente"required>
+ </label><br><br>
+ IMPORTE DE FACTURA
+ <label>
+  <input type="number" name="totalfactura" [(ngModel)]="totalFactura"required>
+</label><br><br>
+<label>
+  IVA
+  <input type="number" name="iva" [(ngModel)]="ivaFactura"required>
+</label><br><br>
+<button (click)="agregarFactura()">Agregar</button>
+<button (click)="eliminarFactura()">Eliminar</button>
+<button (click)="editarFactura()">editar</button>
+<button (click)="consultarFactura()">consultar</button>
+</table>
+ID DE FACTURA
+<label>
+ <input type="number" name="idFactura" [(ngModel)]="idFactura"required>
+</label><br><br>
+<h3>Listado de productos:</h3>
+<table border="1" style="background-color: aqua;" >
+  <thead>
+    <tr>
+      <th>ID Factura</th>
+      <th>ID Cliente</th>
+      <th>Importe Factura</th>
+      <th>IVA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let datos of arrayFactura ">
+    <td>{{datos.idFactura}}</td>
+    <td>{{datos.idCliente}}</td>
+    <td>{{datos.totalFactura}}</td>
+    <td>{{datos.ivaFactura}}</td>
+  </tr>
+  </tbody>
+  </table>
+<div>
+
+<div *ngIf="click">
+  LA FACTURA CONSULTADA ES LA SIGUIENTE:<br>
+  <thead>
+    <tr>
+      <th>ID Factura</th>
+      <th>ID Cliente</th>
+      <th>Importe Factura</th>
+      <th>IVA</th>
+    </tr>
+  </thead>
+  <div *ngFor="let datos of arrayFactura ">
+    <div *ngIf="idFactura == datos.idFactura" >
+      <tr>
+        <td>{{datos.idFactura}}</td>
+        <td>{{datos.idCliente}}</td>
+        <td>{{datos.totalFactura}}</td>
+        <td>{{datos.ivaFactura}}</td>
+      </tr>
+    </div>
+  </div>
+  </div>
+</div>
+
